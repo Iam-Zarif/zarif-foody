@@ -45,15 +45,15 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link className="font-semibold">Home</Link>
+              <Link to='/' className="font-semibold">Home</Link>
             </li>
             <li tabIndex={0}>
-              <Link className="font-semibold">Blog</Link>
+              <Link to='/blogs' className="font-semibold">Blog</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn bg-green-500 text-white hover:bg-green-700">Log in</Link>
+          <Link to='/login' className="btn bg-green-500 text-white hover:bg-green-700">Log in</Link>
         </div>
       </div>
     </div>
