@@ -6,6 +6,7 @@ import userProfile from '../../../assets/user_1.png'
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user)
   const handleLogOut = () =>{
     logOut().then().catch(error => console.log(error))
   }
@@ -65,8 +66,8 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div>
-              <img src={userProfile} alt="" />
+            <div className="tooltip" data-tip="hello">
+              <img src={userProfile} alt="" className="mr-5"/>
             </div>
           ) : (
             <div>
@@ -80,7 +81,7 @@ const Navbar = () => {
           )}
           {user ? (
             <div>
-              <button onClick={handleLogOut}>Log out</button>
+              <button className="border px-3 py-1 rounded-xl" onClick={handleLogOut}>Log out</button>
             </div>
           ) : (
             <div>

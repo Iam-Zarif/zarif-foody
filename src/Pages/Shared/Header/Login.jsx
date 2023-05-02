@@ -2,12 +2,13 @@
 import React, { useContext } from 'react';
 import LogoName from './LogoName';
 import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const {signIn} =useContext(AuthContext);
   const handleLogIn =(e)=>{
      const notify = () => toast("Successfully Logged in");
@@ -20,10 +21,12 @@ const Login = () => {
  
     console.log( email, password);
     signIn(email,password).then(result =>{
+      notify();
       const signedInUser = result.user;
       console.log(signedInUser);
       form.reset();
-      notify();
+      
+      navigate('/');
     }).catch(error =>{
       console.log(error)
       errorNotify();

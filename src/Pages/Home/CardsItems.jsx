@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const CardsItems = ({data}) => {
+  const {user} = useContext(AuthContext)
     const {
       id,
       chefPicture,
@@ -39,7 +41,15 @@ const CardsItems = ({data}) => {
               </div>
             </div>
             <button className="bg-green-600 hover:bg-green-700 py-2 rounded-2xl text-lg mt-14">
-              <Link>View Recipes</Link>
+              {user ? (
+                <div>
+                  <Link to={`/${id}`}>View Recipes</Link>
+                </div>
+              ) : (
+                <div>
+                  <Link to="/login">View Recipes</Link>
+                </div>
+              )}
             </button>
           </div>
         </div>
