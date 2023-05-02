@@ -13,16 +13,23 @@ const Register = () => {
   const { createUser } = useContext(AuthContext);
     const handleRegister =(e)=>{
       const notify = () => toast("Successfully Registered");
+           const errorNotifySixCharacter = () =>
+             toast("Password should contain at least more than 6 characters");
+
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+         if (password.length < 6) {
+           errorNotifySixCharacter();
+         }
         console.log(name,email,password,photo);
         createUser(email,password).then(result =>{
           const createdUser = result.user;
           console.log(createdUser);
+          form.reset();
           notify();
         }).catch(error =>{
           console.log(error)

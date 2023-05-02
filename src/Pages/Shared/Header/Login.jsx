@@ -17,11 +17,12 @@ const Login = () => {
     
     const email = form.email.value;
     const password = form.password.value;
-  
+ 
     console.log( email, password);
     signIn(email,password).then(result =>{
       const signedInUser = result.user;
       console.log(signedInUser);
+      form.reset();
       notify();
     }).catch(error =>{
       console.log(error)

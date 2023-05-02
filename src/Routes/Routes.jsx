@@ -8,6 +8,7 @@ import Register from '../Pages/Shared/Header/Register';
 import Blogs from '../Pages/Shared/Blogs/Blogs';
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <Main></Main>,

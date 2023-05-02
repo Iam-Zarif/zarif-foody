@@ -5,7 +5,10 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import userProfile from '../../../assets/user_1.png'
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () =>{
+    logOut().then().catch(error => console.log(error))
+  }
   return (
     <div className="mt-5">
       <div className="py-5 navbar border border-gray-500 ">
@@ -63,7 +66,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div>
-              <img  src={userProfile} alt="" />
+              <img src={userProfile} alt="" />
             </div>
           ) : (
             <div>
@@ -75,9 +78,17 @@ const Navbar = () => {
               </Link>
             </div>
           )}
+          {user ? (
+            <div>
+              <button onClick={handleLogOut}>Log out</button>
+            </div>
+          ) : (
+            <div>
+              <Link to="/register">Register</Link>
+            </div>
+          )}
         </div>
       </div>
-      
     </div>
   );
 };
