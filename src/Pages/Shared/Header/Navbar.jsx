@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../../Providers/AuthProvider";
+import userProfile from '../../../assets/user_1.png'
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div className="mt-5">
       <div className="py-5 navbar border border-gray-500 ">
@@ -30,10 +32,12 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li tabIndex={0}>
-                <Link className="justify-between">Blog</Link>
+                <Link to="/blogs" className="justify-between">
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,17 +49,35 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to='/' className="font-semibold">Home</Link>
+              <Link to="/" className="font-semibold">
+                Home
+              </Link>
             </li>
             <li tabIndex={0}>
-              <Link to='/blogs' className="font-semibold">Blog</Link>
+              <Link to="/blogs" className="font-semibold">
+                Blog
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn bg-green-500 text-white hover:bg-green-700">Log in</Link>
+          {user ? (
+            <div>
+              <img  src={userProfile} alt="" />
+            </div>
+          ) : (
+            <div>
+              <Link
+                to="/login"
+                className="btn bg-green-500 text-white hover:bg-green-700"
+              >
+                Log in
+              </Link>
+            </div>
+          )}
         </div>
       </div>
+      
     </div>
   );
 };

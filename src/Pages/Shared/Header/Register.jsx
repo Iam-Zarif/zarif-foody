@@ -5,6 +5,15 @@ import LogoName from './LogoName';
 import Navbar from './Navbar';
 
 const Register = () => {
+    const handleRegister =(e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name,email,password,photo)
+    }
     return (
       <div className="">
         <LogoName></LogoName>
@@ -15,7 +24,7 @@ const Register = () => {
             Please Register
           </p>
           <div className="">
-            <form className="mt-10">
+            <form onSubmit={handleRegister} className="mt-10">
               <div className="flex flex-col items-center gap-10">
                 <input
                   required
@@ -36,6 +45,13 @@ const Register = () => {
                   name="password"
                   type="password"
                   placeholder="password"
+                  className=" input input-bordered input-accent w-full max-w-xs"
+                />
+                <input
+                  required
+                  name="photo"
+                  type="text"
+                  placeholder="Photo url"
                   className=" input input-bordered input-accent w-full max-w-xs"
                 />
               </div>
