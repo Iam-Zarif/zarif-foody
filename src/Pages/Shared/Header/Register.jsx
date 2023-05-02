@@ -1,18 +1,32 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import LogoName from './LogoName';
 import Navbar from './Navbar';
+import { AuthContext } from '../../../Providers/AuthProvider';
+
+import { ToastContainer, toast } from "react-toastify";
+
+
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
     const handleRegister =(e)=>{
+      const notify = () => toast("Successfully Registered");
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name,email,password,photo)
+        console.log(name,email,password,photo);
+        createUser(email,password).then(result =>{
+          const createdUser = result.user;
+          console.log(createdUser);
+          notify();
+        }).catch(error =>{
+          console.log(error)
+        })
     }
     return (
       <div className="">
@@ -77,6 +91,7 @@ const Register = () => {
             </form>
           </div>
         </div>
+        <ToastContainer/>
       </div>
     );
 };

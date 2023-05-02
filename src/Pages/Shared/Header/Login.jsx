@@ -1,10 +1,33 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import LogoName from './LogoName';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
+import { ToastContainer, toast } from "react-toastify";
+
 
 const Login = () => {
+  const {signIn} =useContext(AuthContext);
+  const handleLogIn =(e)=>{
+     const notify = () => toast("Successfully Logged in");
+     const errorNotify = () => toast("Wrong password / email !!!");
+    e.preventDefault();
+    const form = e.target;
+    
+    const email = form.email.value;
+    const password = form.password.value;
+  
+    console.log( email, password);
+    signIn(email,password).then(result =>{
+      const signedInUser = result.user;
+      console.log(signedInUser);
+      notify();
+    }).catch(error =>{
+      console.log(error)
+      errorNotify();
+    })
+  }
     return (
       <div className="">
         <LogoName></LogoName>
@@ -13,7 +36,7 @@ const Login = () => {
         <div className="">
           <p className="text-center text-4xl mt-10 font-bold">Please Login</p>
           <div className="">
-            <form className="mt-10">
+            <form onSubmit={handleLogIn} className="mt-10">
               <div className="flex flex-col items-center gap-10">
                 <input
                   required
@@ -58,6 +81,7 @@ const Login = () => {
             </form>
           </div>
         </div>
+        <ToastContainer/>
       </div>
     );
 };

@@ -17,7 +17,7 @@ const CardsItems = ({data}) => {
       <div>
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
-            <img src={chefPicture} alt="Shoes" />
+            <img src={chefPicture} alt="chefs" />
           </figure>
           <div className="card-body">
             <h2 className="card-title text-3xl">
