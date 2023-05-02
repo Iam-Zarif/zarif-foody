@@ -6,11 +6,22 @@ import LogoName from '../Shared/Header/LogoName';
 import Navbar from '../Shared/Header/Navbar';
 
 const ViewRecipes = () => {
-    const {user} = useContext(AuthContext)
+    const {user,loader} = useContext(AuthContext);
+    
     const data = useLoaderData()
     const { id, bio, chefName, likes, numberOfRecipes, yearsOfExperience } =
       data;
     console.log(data);
+    if(loader){
+        return (
+          <div
+            className="radial-progress text-primary"
+            style={{ "--value": 70 }}
+          >
+            70%
+          </div>
+        );
+    }
     return (
         <div>
             <LogoName></LogoName>

@@ -5,7 +5,8 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import userProfile from '../../../assets/user_1.png'
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut,loader } = useContext(AuthContext);
+  
   console.log(user)
   const handleLogOut = () =>{
     logOut().then().catch(error => console.log(error))

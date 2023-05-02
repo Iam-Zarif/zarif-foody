@@ -5,12 +5,22 @@ import { AuthContext } from '../Providers/AuthProvider';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({children}) => {
-    const{user} = useContext(AuthContext)
+    const{user,loader} = useContext(AuthContext);
+    if(loader){
+        return (
+          <div
+            className="radial-progress text-primary"
+            style={{ "--value": 70 }}
+          >
+            70%
+          </div>
+        );
+    }
     if(user){
         return children
     }
     return (
-        <Navigate to='/'>
+        <Navigate to='/' replace>
             
         </Navigate>
     );
