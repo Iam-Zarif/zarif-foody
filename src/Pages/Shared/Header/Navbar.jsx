@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import userProfile from '../../../assets/user_1.png'
+import ActiveLinks from "./ActiveLinks";
 
 const Navbar = () => {
   const { user, logOut,loader } = useContext(AuthContext);
@@ -37,12 +38,12 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Home</Link>
+                <ActiveLinks to="/">Home</ActiveLinks>
               </li>
               <li tabIndex={0}>
-                <Link to="/blogs" className="justify-between">
+                <ActiveLinks to="/blogs" className="justify-between">
                   Blog
-                </Link>
+                </ActiveLinks>
               </li>
             </ul>
           </div>
@@ -54,41 +55,48 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/" className="font-semibold">
+              <ActiveLinks to="/" className="font-semibold">
                 Home
-              </Link>
+              </ActiveLinks>
             </li>
             <li tabIndex={0}>
-              <Link to="/blogs" className="font-semibold">
+              <ActiveLinks to="/blogs" className="font-semibold">
                 Blog
-              </Link>
+              </ActiveLinks>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <div className="tooltip" data-tip="hello">
-              <img src={userProfile} alt="" className="mr-5"/>
-            </div>
-          ) : (
-            <div>
-              <Link
-                to="/login"
-                className="btn bg-green-500 text-white hover:bg-green-700"
-              >
-                Log in
-              </Link>
-            </div>
-          )}
-          {user ? (
-            <div>
-              <button className="border px-3 py-1 rounded-xl" onClick={handleLogOut}>Log out</button>
-            </div>
-          ) : (
-            <div>
-              <Link to="/register">Register</Link>
-            </div>
-          )}
+          <div className="flex items-center gap-5 lg:gap-12">
+            {user ? (
+              <div className="tooltip" data-tip="hello">
+                <img src={userProfile} alt="" className="mr-5" />
+              </div>
+            ) : (
+              <div>
+                <Link
+                  to="/login"
+                  className="btn bg-green-500 text-white hover:bg-green-700"
+                >
+                  Log in
+                </Link>
+              </div>
+            )}
+            {user ? (
+              <div>
+                <button
+                  className="border px-3 py-1 rounded-xl"
+                  onClick={handleLogOut}
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <div>
+                <Link to="/register" className="bg-green-500 p-3 rounded-xl text-black font-semibold">Register</Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const CardsItems = ({data}) => {
@@ -53,6 +53,7 @@ const CardsItems = ({data}) => {
             </button>
           </div>
         </div>
+        <Outlet></Outlet>
       </div>
     );
 };

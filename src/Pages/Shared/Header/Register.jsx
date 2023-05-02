@@ -37,8 +37,7 @@ const Register = () => {
     }
     return (
       <div className="">
-        <LogoName></LogoName>
-        <Navbar></Navbar>
+        
 
         <div className="">
           <p className="text-center text-4xl mt-10 font-bold">

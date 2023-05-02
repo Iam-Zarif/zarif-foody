@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import Extra1 from '../Extra1/Extra1';
 
 const Footer = () => {
     return (
       <div className='mt-20'>
+      
         <footer className="footer p-10 bg-base-200 text-base-content">
           <div>
             <span className="footer-title">Services</span>

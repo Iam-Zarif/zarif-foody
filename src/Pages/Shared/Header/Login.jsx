@@ -5,7 +5,8 @@ import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
-
+import github from '../../../assets/github _1.png'
+import google from '../../../assets/google (1).png'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,10 +34,9 @@ const Login = () => {
     })
   }
     return (
-      <div className="">
-        <LogoName></LogoName>
-        <Navbar></Navbar>
-
+      <div className="mb-20">
+        
+        <ToastContainer />
         <div className="">
           <p className="text-center text-4xl mt-10 font-bold">Please Login</p>
           <div className="">
@@ -85,7 +85,33 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <ToastContainer/>
+        <div className="mt-5 flex justify-center items-center gap-5">
+          <div>
+            <hr className="w-20 lg:w-96" />
+          </div>
+          <div>
+            <p className="text-center text-2xl">or</p>
+          </div>
+          <div>
+            <hr className="w-20 lg:w-96" />
+          </div>
+        </div>
+        <div></div>
+
+        <div className="flex flex-col lg:flex-row lg:p-0 px-12 justify-center gap-16 mt-10">
+          <div className="border  px-5 py-2 bg-slate-700 rounded-xl ">
+            <Link className="flex items-center gap-2">
+              <img src={github} alt="" />
+              <p>Log in With github</p>
+            </Link>
+          </div>
+          <div className="border  px-5 py-2 bg-slate-700 rounded-xl ">
+            <Link className="flex items-center gap-2">
+              <img src={google} alt="" />
+              <p>Log in With google</p>
+            </Link>
+          </div>
+        </div>
       </div>
     );
 };

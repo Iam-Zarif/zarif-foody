@@ -7,9 +7,7 @@ import Navbar from '../Header/Navbar';
 const Blogs = () => {
     return (
       <div>
-        <LogoName></LogoName>
-        <Navbar></Navbar>
-
+        
         <div className="mt-10">
           <h1 className="text-center text-3xl font-bold text-green-500">Blogs Section</h1>
          <hr className='mt-5 w-96 mx-auto' />

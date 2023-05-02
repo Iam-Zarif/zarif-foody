@@ -6,6 +6,7 @@ import Home from '../Pages/Home/Home';
 import Footer from '../Pages/Shared/Footer/Footer';
 import Extra1 from '../Pages/Shared/Extra1/Extra1';
 import { AuthContext } from '../Providers/AuthProvider';
+import { Outlet } from 'react-router-dom';
 
 
 
@@ -25,8 +26,9 @@ const Main = () => {
         <div>
            <LogoName></LogoName>
            <Navbar></Navbar>
-           <Home></Home>
-          <Extra1></Extra1>
+          
+          <Outlet></Outlet>
+         
            <Footer></Footer>
         </div>
     );
