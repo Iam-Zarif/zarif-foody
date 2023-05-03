@@ -13,12 +13,16 @@ const Cards = () => {
         .catch(error => console.error(error))
     })
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-24 mt-20">
-        {homeCards.map((data) => (
-          
+      <div className='mt-28'>
+        <div>
+          <p className='text-center text-4xl font-bold'>Our honorables</p>
+          <hr className='w-96 mx-auto mt-2'/>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-24 mt-20">
+          {homeCards.map((data) => (
             <CardsItems key={data.id} data={data}></CardsItems>
-          
-        ))}
+          ))}
+        </div>
       </div>
     );
 };

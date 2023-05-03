@@ -12,6 +12,10 @@ import Four0Four from "../Four0Four/Four0Four";
 import Extra1 from "../Pages/Shared/Extra1/Extra1";
 
 const router = createBrowserRouter([
+
+
+
+  
   {
     path: "/",
     element: <Main></Main>,
@@ -21,12 +25,10 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
       { path: "/blogs", element: <Blogs></Blogs> },
+      { path: "*", element: <Four0Four></Four0Four> },
     ],
   },
-  { path: "/*", element: <Four0Four></Four0Four> },
-  
-
-  
+  { path: "*", element: <Four0Four></Four0Four> },
   {
     path: "/:id",
     element: (
@@ -34,6 +36,7 @@ const router = createBrowserRouter([
         <ViewRecipes></ViewRecipes>
       </PrivateRoute>
     ),
+
     loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
   },
 ]);
