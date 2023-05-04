@@ -12,10 +12,6 @@ import Four0Four from "../Four0Four/Four0Four";
 import Extra1 from "../Pages/Shared/Extra1/Extra1";
 
 const router = createBrowserRouter([
-
-
-
-  
   {
     path: "/",
     element: <Main></Main>,
@@ -37,7 +33,8 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
 
-    loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+    loader: ({ params }) =>
+      fetch(`https://zarif-foody-server-i-am-zarif.vercel.app/${params.id}`),
   },
 ]);
 

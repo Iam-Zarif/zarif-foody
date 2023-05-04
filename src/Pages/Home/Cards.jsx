@@ -8,10 +8,10 @@ import LazyLoad from "react-lazy-load";
 const Cards = () => {
     const [homeCards, setHomeCards] = useState([]);
     useEffect(() =>{
-        fetch("http://localhost:5000/homeCard")
-        .then(res => res.json())
-        .then(data =>setHomeCards(data))
-        .catch(error => console.error(error))
+        fetch("https://zarif-foody-server-i-am-zarif.vercel.app/homeCard")
+          .then((res) => res.json())
+          .then((data) => setHomeCards(data))
+          .catch((error) => console.error(error));
     })
     return (
       <div className='mt-28'>

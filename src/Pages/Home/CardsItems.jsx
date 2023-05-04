@@ -22,7 +22,7 @@ const CardsItems = ({data}) => {
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
           <LazyLoad offset={300} threshold={0.95}>
             <figure>
-              <img src={chefPicture} alt="chefs" className='lg:h-96 h-full'/>
+              <img src={chefPicture} alt="chefs" className='w-96 h-96'/>
             </figure>
           </LazyLoad>
           <div className="card-body">
