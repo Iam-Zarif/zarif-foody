@@ -8,6 +8,7 @@ import Navbar from "../Shared/Header/Navbar";
 import like from '../../assets/positive-vote.png'
 import ThreeRecipes from "./ThreeRecipes";
 import { ToastContainer, toast } from "react-toastify";
+import Footer from "../Shared/Footer/Footer";
 
 const ViewRecipes = () => {
   const [showButton, setShowButton] = useState(true)
@@ -20,7 +21,8 @@ const ViewRecipes = () => {
   };
   const handleButtonClick1 = () => {
     notify();
-    setShowButton1(false); // set showButton1 to false after it is clicked
+    setShowButton1(false);
+     // set showButton1 to false after it is clicked
   };
   const handleButtonClick3 = () => {
     notify();
@@ -53,12 +55,12 @@ const ViewRecipes = () => {
   
 
   return (
-    <div>
+    <div className="">
       <LogoName></LogoName>
       <Navbar></Navbar>
       <ToastContainer></ToastContainer>
       <div className="mt-10">
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className=" card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img src={chefPicture} className="w-1/2 " alt="Album" />
           </figure>
@@ -91,7 +93,7 @@ const ViewRecipes = () => {
       <div className="mt-12">
         <p className="text-center text-2xl font-bold">Recipes</p>
       </div>
-      <div className="flex justify-center gap-10 mt-16">
+      <div className="flex justify-center gap-10 mt-16 mb-40">
         <div className="card w-96 bg-base-100 shadow-xl shadow-slate-400">
           <div className="card-body">
             <h1>
@@ -117,6 +119,7 @@ const ViewRecipes = () => {
             {showButton && (
               <button
                 onClick={handleButtonClick}
+                
                 className="border py-2 rounded-lg mt-5 hover:border-green-500"
               >
                 Add to Favorite
@@ -189,6 +192,7 @@ const ViewRecipes = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

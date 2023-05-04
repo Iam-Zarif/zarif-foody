@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import CardsItems from './CardsItems';
 import PrivateRoute from '../../Routes/PrivateRoute';
+import LazyLoad from "react-lazy-load";
 
 const Cards = () => {
     const [homeCards, setHomeCards] = useState([]);

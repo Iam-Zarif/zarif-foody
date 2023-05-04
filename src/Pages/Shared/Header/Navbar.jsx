@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import userProfile from '../../../assets/user_1.png'
 import ActiveLinks from "./ActiveLinks";
+import { updateProfile } from "firebase/auth";
 
 const Navbar = () => {
-  const { user, logOut,loader } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
   
-  // console.log(user)
-  const handleLogOut = () =>{
-    logOut().then().catch(error => console.log(error))
-  }
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="mt-5">
       <div className="py-5 navbar border border-gray-500 ">
@@ -69,8 +73,8 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="flex items-center gap-5 lg:gap-12">
             {user ? (
-              <div className="tooltip" data-tip="hello">
-                <img src={userProfile} alt="" className="mr-5" />
+              <div className="tooltip" data-tip={user.displayName}>
+                <img src={user.photoURL} alt="image" className="mr-5 w-10 rounded-full" />
               </div>
             ) : (
               <div>
@@ -85,7 +89,7 @@ const Navbar = () => {
             {user ? (
               <div>
                 <button
-                  className="border px-3 py-1 rounded-xl"
+                  className="border text-lg font-bold hover:border-green-500 px-4 py-2 rounded-xl"
                   onClick={handleLogOut}
                 >
                   Log out
@@ -93,7 +97,12 @@ const Navbar = () => {
               </div>
             ) : (
               <div>
-                <Link to="/register" className="bg-green-500 p-3 rounded-xl text-black font-semibold">Register</Link>
+                <Link
+                  to="/register"
+                  className="bg-green-500 p-3 rounded-xl text-black font-semibold"
+                >
+                  Register
+                </Link>
               </div>
             )}
           </div>

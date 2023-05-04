@@ -11,7 +11,7 @@ import { Outlet } from 'react-router-dom';
 
 
 const Main = () => {
-    let {loader} =useContext(AuthContext);
+    const {loader} =useContext(AuthContext);
     if(loader){
         return (
           <div

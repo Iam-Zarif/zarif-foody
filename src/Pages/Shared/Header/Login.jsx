@@ -2,13 +2,41 @@
 import React, { useContext } from 'react';
 import LogoName from './LogoName';
 import Navbar from './Navbar';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 import github from '../../../assets/github _1.png'
 import google from '../../../assets/google (1).png'
+import app from '../../../Firebase/firebase.config';
+import { GoogleAuthProvider, getAuth, signInWithPopup , GithubAuthProvider} from 'firebase/auth';
 
 const Login = () => {
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || "/";
+  const auth = getAuth(app);
+
+  const provider = new GoogleAuthProvider();
+  const gitProvider = new GithubAuthProvider();
+  const githubSignIn =() =>{
+    signInWithPopup(auth,gitProvider)
+    .then(result =>{
+      const loggedUser = result.user;
+      navigate(from, {replace: true})
+      console.log(loggedUser);
+    }).catch(error => {console.log(error)})
+  }
+  const handelGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navigate = useNavigate();
   const {signIn} =useContext(AuthContext);
   const handleLogIn =(e)=>{
@@ -27,7 +55,7 @@ const Login = () => {
       // console.log(signedInUser);
       form.reset();
       
-      navigate('/');
+      navigate(from, { replace: true });
     }).catch(error =>{
       console.log(error)
       errorNotify();
@@ -35,7 +63,6 @@ const Login = () => {
   }
     return (
       <div className="mb-20">
-        
         <ToastContainer />
         <div className="">
           <p className="text-center text-4xl mt-10 font-bold">Please Login</p>
@@ -100,13 +127,16 @@ const Login = () => {
 
         <div className="flex flex-col lg:flex-row lg:p-0 px-12 justify-center gap-16 mt-10">
           <div className="border  px-5 py-2 bg-slate-700 rounded-xl ">
-            <Link className="flex items-center gap-2">
+            <Link onClick={githubSignIn} className="flex items-center gap-2">
               <img src={github} alt="" />
               <p>Log in With github</p>
             </Link>
           </div>
           <div className="border  px-5 py-2 bg-slate-700 rounded-xl ">
-            <Link className="flex items-center gap-2">
+            <Link
+              onClick={handelGoogleSignIn}
+              className="flex items-center gap-2"
+            >
               <img src={google} alt="" />
               <p>Log in With google</p>
             </Link>
