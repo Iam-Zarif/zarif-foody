@@ -11,8 +11,8 @@ const Blogs = () => {
 
       <ReactToPrint
         trigger={() => (
-          <button className="mt-1 mb-10 flex gap-2 max-w-[1000px] mx-auto">
-            <p>Download-Pdf</p>
+          <button className="border hover:border-green-500 px-5 py-2 rounded-xl  mt-10 mb-10 flex gap-2 max-w-[1000px] mx-auto">
+            <p className='text-xl font-bold'>Download-Pdf</p>
             
           </button>
         )}

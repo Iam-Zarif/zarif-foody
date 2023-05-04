@@ -9,6 +9,9 @@ import like from '../../assets/positive-vote.png'
 import ThreeRecipes from "./ThreeRecipes";
 import { ToastContainer, toast } from "react-toastify";
 import Footer from "../Shared/Footer/Footer";
+import {Rating} from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
+
 
 const ViewRecipes = () => {
   const [showButton, setShowButton] = useState(true)
@@ -28,7 +31,6 @@ const ViewRecipes = () => {
     notify();
     setShowButton3(false); // set showButton1 to false after it is clicked
   };
-  const { user, loader } = useContext(AuthContext);
 
   const data = useLoaderData();
   console.log(data);
@@ -93,8 +95,8 @@ const ViewRecipes = () => {
       <div className="mt-12">
         <p className="text-center text-2xl font-bold">Recipes</p>
       </div>
-      <div className="flex justify-center gap-10 mt-16 mb-40">
-        <div className="card w-96 bg-base-100 shadow-xl shadow-slate-400">
+      <div className=" flex flex-col lg:flex-row justify-center gap-10 mt-16 mb-40">
+        <div className="mx-auto card w-96 bg-base-100 shadow-xl shadow-slate-400">
           <div className="card-body">
             <h1>
               <span className="text-2xl">recipe name</span> :{" "}
@@ -116,10 +118,10 @@ const ViewRecipes = () => {
                 <p>{cookingMethod1}</p>
               </div>
             </p>
+            <Rating readOnly value={4}></Rating>
             {showButton && (
               <button
                 onClick={handleButtonClick}
-                
                 className="border py-2 rounded-lg mt-5 hover:border-green-500"
               >
                 Add to Favorite
@@ -127,7 +129,7 @@ const ViewRecipes = () => {
             )}
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl shadow-slate-400">
+        <div className="mx-auto card w-96 bg-base-100 shadow-xl shadow-slate-400">
           <div className="card-body">
             <h1>
               <span className="text-2xl">recipe name</span> :{" "}
@@ -149,6 +151,7 @@ const ViewRecipes = () => {
                 <p className="mt-4">{cookingMethod2}</p>
               </div>
             </p>
+            <Rating readOnly value={4.6}></Rating>
             {showButton1 && (
               <button
                 onClick={handleButtonClick1}
@@ -159,7 +162,7 @@ const ViewRecipes = () => {
             )}
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl shadow-slate-400">
+        <div className="mx-auto card w-96 bg-base-100 shadow-xl shadow-slate-400">
           <div className="card-body">
             <h1>
               <span className="text-2xl">recipe name</span> :{" "}
@@ -181,6 +184,9 @@ const ViewRecipes = () => {
                 <p className="mt-4">{cookingMethod3}</p>
               </div>
             </p>
+            <div className="mt-8">
+              <Rating readOnly value={4.4}></Rating>
+            </div>
             {showButton3 && (
               <button
                 onClick={handleButtonClick3}
