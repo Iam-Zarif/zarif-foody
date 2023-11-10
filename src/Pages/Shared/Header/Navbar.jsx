@@ -71,7 +71,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center gap-5 lg:gap-12">
+          <div className="flex items-center gap-5 lg:gap-8">
             {user ? (
               <div className="tooltip" data-tip={user.displayName}>
                 <img src={user.photoURL} alt="image" className="mr-5 w-10 rounded-full" />

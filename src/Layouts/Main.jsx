@@ -24,7 +24,6 @@ const Main = () => {
     }
     return (
         <div>
-           <LogoName></LogoName>
            <Navbar></Navbar>
           
           <Outlet></Outlet>
