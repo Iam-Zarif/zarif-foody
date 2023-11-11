@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import CardsItems from './CardsItems';
 import PrivateRoute from '../../Routes/PrivateRoute';
 import LazyLoad from "react-lazy-load";
+import HomeContainer from '../../Container/HomeContainer';
 
 const Cards = () => {
     const [homeCards, setHomeCards] = useState([]);
@@ -14,7 +15,8 @@ const Cards = () => {
           .catch((error) => console.error(error));
     })
     return (
-      <div className='mt-28'>
+      <HomeContainer>
+        <div className='mt-28'>
         <div>
           <p className='text-center text-4xl font-bold'>Our honorables</p>
           <hr className='w-96 mx-auto mt-2'/>
@@ -25,6 +27,7 @@ const Cards = () => {
           ))}
         </div>
       </div>
+      </HomeContainer>
     );
 };
 

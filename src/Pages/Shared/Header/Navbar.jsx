@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import userProfile from '../../../assets/user_1.png'
 import ActiveLinks from "./ActiveLinks";
 import { updateProfile } from "firebase/auth";
+import NavContainer from "../../../Container/NavContainer";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -17,8 +18,10 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="mt-5">
-      <div className="py-5 navbar shadow-md shadow-black ">
+    <div className="shadow-md shadow-black">
+      <NavContainer>
+      <div className="mt-5">
+      <div className="py-5 navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -108,6 +111,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+    </div>
+    </NavContainer>
     </div>
   );
 };

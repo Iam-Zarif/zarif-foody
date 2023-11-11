@@ -2,7 +2,7 @@
 
 const NavContainer = ({children}) => {
     return (
-        <div>
+        <div className="max-w-[1700px] mx-auto">
             {children}
         </div>
     );

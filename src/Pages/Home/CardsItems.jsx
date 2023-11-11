@@ -19,10 +19,10 @@ const CardsItems = ({data}) => {
     
     return (
       <div>
-        <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+        <div className="card w-96 cursor-pointer transition-all duration-500 ease-in-out rounded-xl hover:shadow-black shadow-xl mx-auto">
           <LazyLoad offset={300} threshold={0.95}>
             <figure>
-              <img src={chefPicture} alt="chefs" className='w-80 h-80'/>
+              <img src={chefPicture} alt="chefs" className='w-full rounded-xl lg:h-[300px]'/>
             </figure>
           </LazyLoad>
           <div className="card-body">
@@ -32,15 +32,15 @@ const CardsItems = ({data}) => {
                 {yearsOfExperience} years experience
               </div>
             </h2>
-            <p className="text-2xl mt-5">
+            <p className="text-xl mt-5">
               Numbers of recipes :{" "}
               <span className="text-green-800 font-bold">
                 {numberOfRecipes}
               </span>{" "}
             </p>
             <div className=" ">
-              <div className="badge badge-outline mt-5 text-xl py-6">
-                <img src={like} alt="" />{" "}
+              <div className="badge badge-outline mt-5  py-6">
+                <img className='lg:w-10' src={like} alt="" />{" "}
                 <span className="text-green-800 font-bold ml-2">{likes}</span>
               </div>
             </div>
