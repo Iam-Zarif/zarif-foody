@@ -14,4 +14,6 @@
 ## 🔗 Live site
 [![Dream Job](https://cdn-icons-png.flaticon.com/128/2150/2150463.png)](https://assignment-10-9bf21.web.app/)
 
+## HomePage
+<img src="https://i.ibb.co/zn7FkrH/screencapture-localhost-5173-2023-11-12-03-26-08.jpg">
 
