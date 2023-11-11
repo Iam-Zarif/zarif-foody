@@ -58,7 +58,6 @@ const ViewRecipes = () => {
 
   return (
     <div className="">
-      <LogoName></LogoName>
       <Navbar></Navbar>
       <ToastContainer></ToastContainer>
       <div className="mt-10">

@@ -19,7 +19,9 @@ const CardsItems = ({data}) => {
     
     return (
       <div>
-        <div className="card w-96 cursor-pointer transition-all duration-500 ease-in-out rounded-xl hover:shadow-black shadow-xl mx-auto">
+        <div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" className="card w-96 cursor-pointer transition-all duration-500 ease-in-out rounded-xl hover:shadow-green-950 shadow-xl shadow-slate-900 mx-auto">
           <LazyLoad offset={300} threshold={0.95}>
             <figure>
               <img src={chefPicture} alt="chefs" className='w-full rounded-xl lg:h-[300px]'/>

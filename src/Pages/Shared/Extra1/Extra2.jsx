@@ -9,7 +9,7 @@ const Extra2 = () => {
      const [seconds, setSeconds] = useState(0);
 
      useEffect(() => {
-       const deadline = new Date("2023-05-28"); // Set the date and time when the offer will end
+       const deadline = new Date("2035-05-28"); 
 
        const interval = setInterval(() => {
          const now = new Date().getTime();
@@ -41,7 +41,9 @@ const Extra2 = () => {
        return () => clearInterval(interval);
      }, []);
     return (
-      <div className="mt-36">
+      <div className="mt-36" data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine">
         <hr className="w-1/3 mx-auto" />
         <div className="mt-16">
           <p className="text-center text-3xl font-bold">
