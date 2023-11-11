@@ -9,6 +9,7 @@ import github from '../../../assets/github _1.png'
 import google from '../../../assets/google (1).png'
 import app from '../../../Firebase/firebase.config';
 import { GoogleAuthProvider, getAuth, signInWithPopup , GithubAuthProvider} from 'firebase/auth';
+import { Toaster } from 'react-hot-toast';
 
 const Login = () => {
   const location = useLocation()
@@ -21,6 +22,7 @@ const Login = () => {
   const githubSignIn =() =>{
     signInWithPopup(auth,gitProvider)
     .then(result =>{
+      
       const loggedUser = result.user;
       navigate(from, {replace: true})
       console.log(loggedUser);
@@ -63,6 +65,7 @@ const Login = () => {
   }
     return (
       <div className="mb-20">
+        <div><Toaster/></div>
         <ToastContainer />
         <div className="">
           <p className="text-center text-4xl mt-10 font-bold">Please Login</p>

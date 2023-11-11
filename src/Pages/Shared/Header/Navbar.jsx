@@ -6,19 +6,26 @@ import userProfile from '../../../assets/user_1.png'
 import ActiveLinks from "./ActiveLinks";
 import { updateProfile } from "firebase/auth";
 import NavContainer from "../../../Container/NavContainer";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  const notify = () => toast.success('Successfully logged out');
+
 
   
   const handleLogOut = () => {
     logOut()
-      .then()
+  
+      .then(
+        {
+        }
+      )
       .catch((error) => console.log(error));
   };
   return (
     <div className="shadow-md shadow-black">
+      <div><Toaster/></div>
       <NavContainer>
       <div className="mt-5">
       <div className="py-5 navbar ">
@@ -54,10 +61,10 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
             Zarif{" "}
             <span className="text-3xl font-bold text-green-500">Foody</span>
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

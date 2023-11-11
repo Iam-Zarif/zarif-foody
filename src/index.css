@@ -10,3 +10,11 @@
 .cover-text-sm , .off{
     text-shadow: 5px 5px 5px  black;
 }
+
+.parallax-bg {
+    background-image: url('https://i.ibb.co/MDtb75D/cover-7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  

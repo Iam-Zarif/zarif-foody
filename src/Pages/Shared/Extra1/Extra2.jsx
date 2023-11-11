@@ -100,6 +100,7 @@ const Extra2 = () => {
             </div>
           </div>
         </div>
+        <hr className="w-1/3 mx-auto mt-20"/>
       </div>
     );
 };

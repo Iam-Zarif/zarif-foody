@@ -8,17 +8,14 @@ import Extra1 from '../Pages/Shared/Extra1/Extra1';
 import { AuthContext } from '../Providers/AuthProvider';
 import { Outlet } from 'react-router-dom';
 
-
+import photo from "../assets/restaurant.png"
 
 const Main = () => {
     const {loader} =useContext(AuthContext);
     if(loader){
         return (
-          <div
-            className="radial-progress text-primary mt-64 ml-44 lg:ml-96"
-            style={{ "--value": 70 }}
-          >
-            70%
+          <div className='flex justify-center content-center items-center h-screen '>
+           <img src={photo} className='shadow-2xl shadow-black rounded-full lg:w-fit w-1/2' alt="" />
           </div>
         );
     }

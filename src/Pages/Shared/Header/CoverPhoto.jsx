@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import cover1 from "../../../assets/cover1.jpg";
 import cover2 from "../../../assets/cover2_1.jpg";
 import {BsFillArrowRightCircleFill} from "react-icons/bs"
@@ -17,9 +17,10 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const CoverPhoto = () => {
-  const progressCircle = useRef(null);
+  const {loader} = useContext(AuthContext)
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
   
