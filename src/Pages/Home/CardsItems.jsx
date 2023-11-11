@@ -22,7 +22,7 @@ const CardsItems = ({data}) => {
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
           <LazyLoad offset={300} threshold={0.95}>
             <figure>
-              <img src={chefPicture} alt="chefs" className='w-96 h-96'/>
+              <img src={chefPicture} alt="chefs" className='w-80 h-80'/>
             </figure>
           </LazyLoad>
           <div className="card-body">
@@ -44,7 +44,7 @@ const CardsItems = ({data}) => {
                 <span className="text-green-800 font-bold ml-2">{likes}</span>
               </div>
             </div>
-            <button className="bg-green-600 hover:bg-green-700 py-2 rounded-2xl text-lg mt-14">
+            <button className="bg-green-600 hover:bg-green-700 py-2 rounded-2xl text-lg mt-5">
               {/* {user ? (
                 <div>
                   <Link to={`/${id}`}>View Recipes</Link>

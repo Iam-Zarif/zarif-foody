@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   return (
     <div className="mt-5">
-      <div className="py-5 navbar border border-gray-500 ">
+      <div className="py-5 navbar shadow-md shadow-black ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,7 +71,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center gap-5 lg:gap-8">
+          <div className="flex items-center gap-5 lg:gap-2">
             {user ? (
               <div className="tooltip" data-tip={user.displayName}>
                 <img src={user.photoURL} alt="image" className="mr-5 w-10 rounded-full" />
